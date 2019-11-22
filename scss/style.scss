@@ -1,0 +1,156 @@
+@import 'config';
+@import 'utility';
+@import 'menu';
+@import 'form';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  @include background;
+  @include set-background($control-color);
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
+ul {
+  list-style: none;
+}
+// Showcase
+.landing {
+  position: relative;
+  height: 100vh;
+  &-inner {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    .icons {
+      a {
+        color: set-text-color($control-color);
+        i {
+          margin: 0 0.5rem;
+        }
+      }
+    }
+  }
+}
+// About
+.about {
+  position: relative;
+  padding: 2rem 0;
+  min-height: calc(100vh - 60px);
+  &-inner {
+    height: 100%;
+    width: 70%;
+    margin: auto;
+    .about-info {
+      display: grid;
+      grid-gap: 2rem;
+      grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      .bio-image {
+        grid-area: bioimage;
+        margin: auto;
+      }
+      .bio {
+        grid-area: bio;
+        font-size: 1.5rem;
+      }
+      .job-1 {
+        grid-area: job1;
+      }
+      .job-2 {
+        grid-area: job2;
+      }
+      .job-3 {
+        grid-area: job3;
+      }
+      .job {
+        background: lighten($control-color, 10);
+        padding: 1rem;
+        border-bottom: $primary-color 5px solid;
+        h3,
+        h6 {
+          padding-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
+// My work
+.work {
+  position: relative;
+  padding: 2rem 0;
+  min-height: calc(100vh - 60px);
+  &-inner {
+    height: 100%;
+    width: 70%;
+    margin: auto;
+    .projects {
+      display: grid;
+      grid-gap: 0.7rem;
+      grid-template-columns: repeat(3, 1fr);
+      img {
+        width: 100%;
+        border: 3px #fff solid;
+        &:hover {
+          opacity: 0.5;
+          border-color: $primary-color;
+          @include transition;
+        }
+      }
+    }
+  }
+}
+// Contact
+.contact {
+  position: relative;
+  padding: 2rem 0;
+  min-height: calc(100vh - 60px);
+  &-inner {
+    height: 100%;
+    width: 70%;
+    margin: auto;
+    .boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+      margin-top: 1rem;
+      div {
+        font-size: 2rem;
+        border: 3px #fff solid;
+        padding: 1.5rem 2.5rem;
+        margin-bottom: 3rem;
+        @include transition;
+        &:hover {
+          padding: 0.5rem 1.5rem;
+          background: $primary-color;
+          color: set-text-color($primary-color);
+          span {
+            color: set-text-color($primary-color);
+          }
+        }
+      }
+    }
+  }
+}
+// Footer
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($control-color, 10);
+  color: set-text-color($control-color);
+  height: 60px;
+}
+@import 'mobile';

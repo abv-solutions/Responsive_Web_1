@@ -1,0 +1,125 @@
+// Menu button
+.menu-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  cursor: pointer;
+  .hamburger {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    padding: 1rem 0.7rem;
+    align-items: center;
+    justify-content: center;
+    div {
+      position: relative;
+      width: 100%;
+      height: 2px;
+      background-color: set-text-color($control-color);
+      align-items: center;
+      justify-content: center;
+      @include transition;
+      &:after,
+      &:before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        width: 100%;
+        height: 2px;
+        background: inherit;
+      }
+      &:after {
+        top: 8px;
+      }
+    }
+  }
+  &.close {
+    .hamburger {
+      div {
+        transform: rotate(135deg);
+        &:after,
+        &:before {
+          top: 0;
+          transform: rotate(90deg);
+        }
+      }
+    }
+    &:hover {
+      .hamburger {
+        div {
+          transform: rotate(225deg);
+        }
+      }
+    }
+  }
+}
+// Menu overlay
+.menu {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+  &.show {
+    visibility: visible;
+  }
+  &-branding,
+  &-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  &-branding {
+    margin: 0;
+    padding: 0;
+    background: rgba(darken($control-color, 10), 0.9);
+    transform: translate3d(0, 100%, 0);
+    @include transition;
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  &-nav {
+    margin: 0;
+    padding: 0;
+    background: rgba(darken($control-color, 20), 0.9);
+    transform: translate3d(0, -100%, 0);
+    @include transition;
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+    .nav-item {
+      transform: translate3d(400%, 0, 0);
+      @include transition;
+      &.show {
+        transform: translate3d(0, 0, 0);
+      }
+      &.current > a {
+        color: $primary-color;
+      }
+      .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 2rem;
+        padding: 1rem 0;
+        color: set-text-color($control-color);
+        @include transition;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+// Delay each nav item slide by 0.1s
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}

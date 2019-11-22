@@ -1,0 +1,137 @@
+// Widescreens
+@include mediaXl {
+  .work {
+    &-inner {
+      .projects {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}
+// Laptops
+@include mediaLg {
+  .portrait {
+    img {
+      width: 320px;
+    }
+  }
+  .about {
+    &-inner {
+      .about-info {
+        grid-template-areas: 'bioimage bio bio' 'job1 job1 job1' 'job2 job2 job2' 'job3 job3 job3';
+      }
+    }
+  }
+}
+// Tablets
+@include mediaMd {
+  .landing {
+    &-inner {
+      text-align: center;
+    }
+  }
+  .menu {
+    &-branding,
+    &-nav {
+      float: none;
+      width: 100%;
+      min-height: 0;
+      &.show {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    &-branding {
+      height: 35vh;
+      transform: translate3d(100%, 0, 0);
+      .portrait {
+        img {
+          width: 250px;
+        }
+      }
+    }
+    &-nav {
+      height: 65vh;
+      transform: translate3d(-100%, 0, 0);
+      font-size: 24px;
+      .nav-item {
+        transform: translate3d(-200%, 0, 0);
+      }
+    }
+  }
+  .about {
+    &-inner {
+      .about-info {
+        grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  .work {
+    &-inner {
+      .projects {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+  .contact {
+    &-inner {
+      .boxes {
+        div {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+// Smartphones
+@include mediaSm {
+  .hide-sm {
+    display: none;
+  }
+  // Text styles
+  .x-large {
+    font-size: 3rem;
+  }
+  .large {
+    font-size: 2rem;
+  }
+  .lead {
+    font-size: 1rem;
+  }
+  .icons {
+    a {
+      i {
+        margin: 0 !important;
+      }
+    }
+  }
+  .portrait {
+    img {
+      width: 200px !important;
+    }
+  }
+  .work {
+    &-inner {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  .contact {
+    &-inner {
+      .boxes {
+        div {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+@include mediaH {
+  .menu-branding {
+    display: none;
+  }
+  .menu-nav {
+    height: 100vh;
+  }
+}
