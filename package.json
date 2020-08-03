@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass -w scss/ -o css/",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
@@ -20,7 +19,6 @@
   },
   "homepage": "https://abv-solutions.github.io/portfolio-web",
   "devDependencies": {
-    "gh-pages": "^2.1.1",
-    "node-sass": "^4.12.0"
+    "gh-pages": "^2.1.1"
   }
 }
